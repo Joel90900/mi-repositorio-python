@@ -1,0 +1,26 @@
+
+
+class Producto:
+    def __init__(self, nombre, precio):
+        if nombre.strip() == "":
+            raise ValueError("El nombre es obligatorio.")
+
+        if precio <= 0:
+            raise ValueError("El precio debe ser positivo.")
+
+        self.nombre = nombre
+        self.precio = precio
+
+
+try:
+    producto = Producto("Teclado", -5000)
+    print(producto.nombre)
+except ValueError as error:
+    print("No se pudo crear:", error)
+
+try:
+    producto = Producto("Mouse", 45000)
+    print("Creado:", producto.nombre, producto.precio)
+except ValueError as error:
+    print("No se pudo crear:", error)
+
